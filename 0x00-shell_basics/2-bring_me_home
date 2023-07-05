@@ -1,0 +1,4 @@
+#!/bin/bash
+home_directory=$(eval echo ~)
+cd "$home_directory
+echo "you going : $home_directory"
