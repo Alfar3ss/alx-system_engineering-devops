@@ -1,6 +1,31 @@
 #!/usr/bin/env bash
-# install nginx web server and create html pages
-apt-get -y update
+# Bash script to install Nginx web server and configure it
+
+# Update package lists and install Nginx
+apt-get update
 apt-get install -y nginx
-echo "codingschool School" | sudo tee /usr/share/nginx/html/index.html
-service nginx restart
+
+# Verify Nginx installation
+if [ "$(which nginx)" ]; then
+    echo "Nginx installed successfully."
+else
+    echo "Error: Nginx installation failed."
+    exit 1
+fi
+
+# Configure Nginx to listen on port 80
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+
+# Restart Nginx to apply changes (avoid using systemctl)
+/etc/init.d/nginx restart
+
+# Create a Hello World HTML file
+echo "<html><head><title>Hello World</title></head><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
+
+# Verify Nginx is serving the Hello World page
+curl localhost | grep "Hello World"
+if [ $? -eq 0 ]; then
+    echo "Nginx is serving the Hello World page."
+else
+    echo "Error: Nginx is not serving the Hello World page."
+fi
