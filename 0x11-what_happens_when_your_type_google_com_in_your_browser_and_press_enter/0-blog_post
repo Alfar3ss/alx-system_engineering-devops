@@ -1,0 +1,33 @@
+
+What happens when you type google.com in your browser and press Enter:
+
+
+1. DNS Request:
+ - Your Mozila/Chrome sends a DNS request to resolve (www.google.com) into an IP address.
+ - The DNS server responds with “142.250.200.132” which is associated  with “www.google.com”.
+2. TCP/IP:
+ - Using the gotten IP address, your Mozila/Chrome inductees a TCP connection with the Google server over the Internet using the TCP/IP.
+ - TCP confirms reliable communication by starting a connection, managing data packets, and managing  error correction.
+ 
+3. Firewall:
+ - The data packets from your Mzoila/Chrome may pass over firewalls, which are network security systems that monitor and control incoming and outgoing traffic based on predetermined security rules.
+ 
+4. HTTPS/SSL:
+ - (HTTPS means Hypertext Transfer Protocol Secure) , Since "https://" shows a secure connection, your browser such as Mozila or chrome… set up an HTTPS connection with the Google server using SSL/TLS encryption.
+ - SSL/TLS ( means Secure Sockets Layer/Transport Layer Security) ensures that the data switch between your browser and Google's server is encrypted and secure against spying or listening .
+ 
+5. Load-Balancer:
+ - The load balancer forwards your request to an available Google server for processing.
+ - Google uses load balancers to allocate incoming traffic over multiple servers for efficient managing  and to prevent overloading.
+ 
+6Web Server:
+ - The Google server, which may be running Nginx, Apache, receives your HTTPS request.
+ - It processes the request, fetch the requested content, and get ready for the response.
+ 
+7. Application Server:
+ - If your request involves dynamic content or web oage, such as customized info or search results, it is handled by app server of google.
+ - These servers runs the necessary logic, retrieve data from DBs, and generate the dynamic content for your browser such as google chrom or mozila.
+ 
+8. Database:
+ - If the request requires to access  or chnaging data in Google's dbs, such as retrieving  user information  or search results , the app servers interact with the db according to it.
+ - The DBs store and manage vast amounts of structured and unstructured data used by services of google
